@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
-
+// variabile per utilizzare l'url
 const apiUrl = import.meta.env.VITE_API_URL;
 
+// funzione per il recupero delle task tramite un custom hook
 export default function useTasks() {
     const [getTask, setGetTask] = useState([]);
 
@@ -23,6 +24,18 @@ export default function useTasks() {
         }
         fetchData()
     }, [])
-    return { getTask }
+
+    const addTask = (newTask) => {
+
+    }
+
+    const removeTask = (taskId) => {
+
+    }
+
+    const updateTask = () => {
+
+    }
+    return { getTask, addTask, removeTask, updateTask }
 }
 
