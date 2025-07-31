@@ -3,7 +3,6 @@ import useTasks from "../hooks/useTasks";
 
 const TaskContext = createContext();
 
-
 export const TaskProvider = ({ children }) => {
 
     // recupero le funzioni di get, modifica e delete dal custom hook
