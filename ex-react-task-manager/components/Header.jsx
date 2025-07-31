@@ -1,8 +1,23 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
     return (
-        <header><h1>Task manager</h1></header>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <div className="container-fluid">
+                <h1 className='me-4'>Task manager</h1>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item me-4">
+                            <NavLink to="/">Home Page</NavLink>
+                        </li>
+                        <li className="nav-item me-4">
+                            <NavLink to="/addtasks">Lista delle task </NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     )
 }
 
