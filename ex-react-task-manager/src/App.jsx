@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import TaskList from './pages/TaskList'
 import AddTask from './pages/AddTask'
+import DefaultLayouts from '../layouts/defaultLayouts'
 
 function App() {
 
@@ -10,8 +11,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/tasks' element={<TaskList />} />
-          <Route path='/addtasks' element={<AddTask />} />
+          <Route element={<DefaultLayouts />}>
+            <Route path='/' element={<TaskList />} />
+            <Route path='/addtasks' element={<AddTask />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

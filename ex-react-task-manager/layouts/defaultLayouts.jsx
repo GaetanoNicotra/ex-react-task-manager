@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
+import { Outlet } from 'react-router-dom'
 
-const defaultLayouts = () => {
+const DefaultLayouts = () => {
   return (
     <>
       <Header />
@@ -10,4 +11,4 @@ const defaultLayouts = () => {
   )
 }
 
-export default defaultLayouts
+export default DefaultLayouts
