@@ -1,14 +1,11 @@
 import React, { useContext } from 'react';
 import TaskContext from '../contexts/TaskContext';
-
+import { memo } from 'react'
 
 const TaskRow = () => {
-    // consumo del conteso
+
+    // consumo del global context
     const { getTask } = useContext(TaskContext);
-    const table = React.memo(({ getTask }) => {
-
-    })
-
 
     return (
         // creazione dinamica della tabella con le task 
@@ -21,12 +18,12 @@ const TaskRow = () => {
                     <th>Data di creazione</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className='table-color'>
                 {getTask.map((g) => (
                     <tr key={g.id}>
                         <td>{g.title}</td>
-                        <td style={{ color: g.status === 'To do' ? 'red' : g.status === 'Doing' ? 'green' : 'yellow' }}>{g.status}</td>
-                        <td>{g.createdAt}</td>
+                        <td style={{ backgroundColor: g.status === 'To do' ? 'red' : g.status === 'Doing' ? 'green' : 'yellow' }}>{g.status}</td>
+                        <td>{new Date(g.createdAt).toLocaleDateString()}</td>
                     </tr>
                 ))}
             </tbody>
@@ -35,4 +32,4 @@ const TaskRow = () => {
 
 };
 
-export default TaskRow;
+export default memo(TaskRow);
