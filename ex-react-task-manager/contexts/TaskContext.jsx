@@ -11,10 +11,17 @@ export const TaskProvider = ({ children }) => {
 
     useEffect(() => {
         async function fetchData() {
-            const task = await fetch(`${apiUrl}/tasks`);
-            const data = await task.json()
-            setGetTask(data)
-            console.log(data)
+            try {
+                const task = await fetch(`${apiUrl}/tbsks`);
+                const data = await task.json()
+                setGetTask(data)
+                console.log(data)
+            } catch (error) {
+                const err = new Error("Errore, controlla l'URL")
+                console.error('Errore nel recupero delle task', error)
+                console.log(err)
+            }
+
         }
         fetchData()
     }, [])

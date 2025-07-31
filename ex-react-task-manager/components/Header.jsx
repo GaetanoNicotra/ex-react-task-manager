@@ -12,7 +12,7 @@ const Header = () => {
                             <NavLink to="/">Home Page</NavLink>
                         </li>
                         <li className="nav-item me-4">
-                            <NavLink to="/addtasks">Lista delle task </NavLink>
+                            <NavLink to="/addtasks">Aggiungi Task </NavLink>
                         </li>
                     </ul>
                 </div>
