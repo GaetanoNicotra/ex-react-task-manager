@@ -12,7 +12,7 @@ export const TaskProvider = ({ children }) => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const task = await fetch(`${apiUrl}/tbsks`);
+                const task = await fetch(`${apiUrl}/tasks`);
                 const data = await task.json()
                 setGetTask(data)
                 console.log(data)
