@@ -4,6 +4,7 @@ import TaskList from './pages/TaskList'
 import AddTask from './pages/AddTask'
 import DefaultLayouts from '../layouts/defaultLayouts'
 import { TaskProvider } from '../contexts/TaskContext'
+import TaskDetail from './pages/TaskDetail'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Route element={<DefaultLayouts />}>
               <Route path='/' element={<TaskList />} />
               <Route path='/addtasks' element={<AddTask />} />
+              <Route path='/tasks/:id' element={<TaskDetail />} />
             </Route>
           </Routes>
         </BrowserRouter>

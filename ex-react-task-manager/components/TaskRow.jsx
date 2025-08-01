@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
+import { Link } from 'react-router-dom';
 import TaskContext from '../contexts/TaskContext';
-import { memo } from 'react'
 
 const TaskRow = () => {
 
@@ -21,7 +21,7 @@ const TaskRow = () => {
             <tbody>
                 {getTask.map((g) => (
                     <tr key={g.id}>
-                        <td className="align-middle">{g.title}</td>
+                        <td className="align-middle"><Link to={`/tasks/${g.id}`}>{g.title}</Link></td>
                         <td className="text-white text-center fw-bold align-middle"
                             style={{ backgroundColor: g.status === 'To do' ? '#dc3545' : g.status === 'Doing' ? '#ffc107' : '#198754', color: g.status === 'Done' ? '#000' : '#fff' }}>{g.status} </td>
                         <td className="text-center align-middle">
