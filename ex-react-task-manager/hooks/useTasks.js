@@ -37,8 +37,15 @@ export default function useTasks() {
         setGetTask(prev => [...prev, task])
     }
 
-    const removeTask = (taskId) => {
-
+    // funzione per rimuovere una task
+    const removeTask = async (taskId) => {
+        const response = await fetch(`${apiUrl}/tasks/${taskId}`, {
+            method: 'DELETE',
+        })
+        const { success, message, task } = await response.json();
+        if (!success) throw new Error(message)
+        //rimuovo la task
+        setGetTask(prev => prev.filter(p => p.id !== taskId));
     }
 
     const updateTask = () => {
