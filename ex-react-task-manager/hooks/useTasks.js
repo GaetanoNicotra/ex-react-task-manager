@@ -7,8 +7,8 @@ const apiUrl = import.meta.env.VITE_API_URL;
 export default function useTasks() {
     const [getTask, setGetTask] = useState([]);
 
+    // recupero di tutti i post
     useEffect(() => {
-
         async function fetchData() {
             try {
                 const task = await fetch(`${apiUrl}/tasks`);
@@ -25,8 +25,16 @@ export default function useTasks() {
         fetchData()
     }, [])
 
-    const addTask = (newTask) => {
-
+    // funzione per aggiungere una task
+    const addTask = async (newTask) => {
+        const response = await fetch(`${apiUrl}/tasks`, {
+            method: 'POST',
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(newTask)
+        })
+        const { success, message, task } = await response.json();
+        if (!success) throw new Error(message)
+        setGetTask(prev => [...prev, task])
     }
 
     const removeTask = (taskId) => {

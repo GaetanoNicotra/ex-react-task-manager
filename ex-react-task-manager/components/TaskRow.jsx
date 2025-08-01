@@ -23,7 +23,7 @@ const TaskRow = () => {
                     <tr key={g.id}>
                         <td className="align-middle">{g.title}</td>
                         <td className="text-white text-center fw-bold align-middle"
-                            style={{ backgroundColor: g.status === 'To do' ? '#dc3545' : g.status === 'Doing' ? '#198754' : '#ffc107', color: g.status === 'Done' ? '#000' : '#fff' }}>{g.status} </td>
+                            style={{ backgroundColor: g.status === 'To do' ? '#dc3545' : g.status === 'Doing' ? '#ffc107' : '#198754', color: g.status === 'Done' ? '#000' : '#fff' }}>{g.status} </td>
                         <td className="text-center align-middle">
                             {new Date(g.createdAt).toLocaleDateString()}
                         </td>

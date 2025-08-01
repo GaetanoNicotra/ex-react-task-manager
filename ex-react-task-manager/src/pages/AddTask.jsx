@@ -1,7 +1,14 @@
-import React from 'react'
-import { useState, useRef } from 'react'
+import React, { useMemo } from 'react'
+import { useState, useRef, useContext } from 'react'
+import TaskContext from '../../contexts/TaskContext';
+
+// controllo campo input 
+const symbols = "!@#$%^&*()-_=+[]{}|;:'\\,.<>?/`~";
 
 const AddTask = () => {
+
+    // recupero la funzione per aggiungere la task
+    const { addTask } = useContext(TaskContext)
 
     // campi input controllati   
     const [title, setTitle] = useState('')
@@ -10,14 +17,31 @@ const AddTask = () => {
     const description = useRef('')
     const status = useRef('')
 
+    // verifica del campo input
+    const nameError = useMemo(() => {
+        if (!title.trim()) return "Il nome non puo essere vuoto!"
+        if ([...title].some(car => symbols.includes(car)))
+            return "Il nome non puo contenere simboli!"
+        return ""
+    }, [title])
+
     // funzione per l'invio della form
-    function sendData(e) {
+    async function sendData(e) {
         e.preventDefault()
-        console.log(`Riepilogo Task:
-    Nome: ${title};
-    Descrizione: ${description.current.value};
-    Stato: ${status.current.value}
-    `)
+        const newTask = {
+            title: title.trim(),
+            description: description.current.value,
+            status: status.current.value
+        }
+        try {
+            await addTask(newTask)
+            alert('Task aggiunta con successo!')
+            setTitle('')
+            description.current.value = ''
+            status.current.value = 'To do'
+        } catch (error) {
+            alert(error.message)
+        }
     }
 
     return (
@@ -25,19 +49,21 @@ const AddTask = () => {
             <div className="container">
                 <h2 className='mt-4'>Aggiungi una nuova Task!</h2>
                 <div className="row">
-                    <form>
-                        <p className='mt-3'>Inserisci il nome della Task</p>
+                    <form onSubmit={sendData}>
+                        <p className='mt-3'>Inserisci il nome della Task </p>
                         <input type="text" placeholder='Nome' value={title} onChange={(e) => { setTitle(e.target.value) }} required />
+                        {nameError && <p style={{ color: 'red' }}>{nameError}</p>}
+
                         <p className='mt-3'>Descrizione della task</p>
-                        <textarea ref={description}></textarea>
+                        <textarea ref={description} required></textarea>
                         <p className='mt-3'>Stato della Task</p>
-                        <select ref={status} defaultValue="To do">
+                        <select ref={status} defaultValue="To do" >
                             <option value="To do">To do</option>
                             <option value="Doing">Doing</option>
                             <option value="Done">Done</option>
                         </select>
                         <br />
-                        <button className='btn btn-primary mt-3' onClick={sendData}>Aggiungi task</button>
+                        <button disabled={nameError} className='btn btn-primary mt-3'>Aggiungi task</button>
                     </form>
                 </div>
             </div>
