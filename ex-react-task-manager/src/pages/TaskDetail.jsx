@@ -1,9 +1,8 @@
 import React from 'react'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import TaskContext from '../../contexts/TaskContext';
 import { useParams, useNavigate } from 'react-router-dom';
-
-
+import Modal from '../../components/Modal';
 
 const TaskDetail = () => {
 
@@ -15,11 +14,12 @@ const TaskDetail = () => {
     // cerco l'id 
     const selectedTasK = getTask.find(task => task.id === parseInt(id));
 
+    // stato per momstrare la modale
+    const [showModal, setShowModal] = useState(false);
+
     if (!selectedTasK) {
         return <h2>Task Non Trovata</h2>
     }
-
-
 
     // funzione per eliminare la task
     const removeTaskButton = async () => {
@@ -45,7 +45,18 @@ const TaskDetail = () => {
                             }}>
                                 <b>Stato:</b> {selectedTasK.status}</p>
                             <p><b>Data di creazione:</b> {new Date(selectedTasK.createdAt).toLocaleDateString()}</p>
-                            <button className='btn btn-danger' onClick={removeTaskButton}>Elimina task</button>
+                            <button className='btn btn-danger' onClick={() => setShowModal(true)}>Elimina task</button>
+                            <div>{<Modal
+                                title='Conferma Eliminazione'
+                                content={<p>Conferamare l'eliminazione?</p>}
+                                show={showModal}
+                                onClose={() => setShowModal(false)}
+                                onConfirm={removeTaskButton}
+                                confirmText='Elimina'
+                            />}
+
+                            </div>
+
                         </div>
 
                     </div>
