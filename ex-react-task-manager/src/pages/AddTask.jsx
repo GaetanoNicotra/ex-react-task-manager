@@ -49,22 +49,24 @@ const AddTask = () => {
             <div className="container">
                 <h2 className='mt-4'>Aggiungi una nuova Task!</h2>
                 <div className="row">
-                    <form onSubmit={sendData}>
-                        <p className='mt-3'>Inserisci il nome della Task </p>
-                        <input type="text" placeholder='Nome' value={title} onChange={(e) => { setTitle(e.target.value) }} required />
-                        {nameError && <p style={{ color: 'red' }}>{nameError}</p>}
+                    <div className="col-8">
+                        <form onSubmit={sendData}>
+                            <p className='mt-3'>Inserisci il nome della Task </p>
+                            <input type="text" placeholder='Nome' value={title} onChange={(e) => { setTitle(e.target.value) }} required />
+                            {nameError && <p style={{ color: 'red' }}>{nameError}</p>}
 
-                        <p className='mt-3'>Descrizione della task</p>
-                        <textarea ref={description} required></textarea>
-                        <p className='mt-3'>Stato della Task</p>
-                        <select ref={status} defaultValue="To do" >
-                            <option value="To do">To do</option>
-                            <option value="Doing">Doing</option>
-                            <option value="Done">Done</option>
-                        </select>
-                        <br />
-                        <button disabled={nameError} className='btn btn-primary mt-3'>Aggiungi task</button>
-                    </form>
+                            <p className='mt-3'>Descrizione della task</p>
+                            <textarea ref={description} required></textarea>
+                            <p className='mt-3'>Stato della Task</p>
+                            <select ref={status} defaultValue="To do" >
+                                <option value="To do">To do</option>
+                                <option value="Doing">Doing</option>
+                                <option value="Done">Done</option>
+                            </select>
+                            <br />
+                            <button disabled={nameError} className='btn btn-primary mt-5'>Aggiungi task</button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
