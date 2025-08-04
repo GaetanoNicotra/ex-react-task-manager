@@ -46,23 +46,18 @@ const TaskDetail = () => {
                                 <b>Stato:</b> {selectedTasK.status}</p>
                             <p><b>Data di creazione:</b> {new Date(selectedTasK.createdAt).toLocaleDateString()}</p>
                             <button className='btn btn-danger' onClick={() => setShowModal(true)}>Elimina task</button>
-                            <div>{<Modal
+                            {<Modal
                                 title='Conferma Eliminazione'
-                                content={<p>Conferamare l'eliminazione?</p>}
+                                content={<h5 className='text-white mt-4'>Conferamare l'eliminazione?</h5>}
                                 show={showModal}
                                 onClose={() => setShowModal(false)}
                                 onConfirm={removeTaskButton}
                                 confirmText='Elimina'
                             />}
-
-                            </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
