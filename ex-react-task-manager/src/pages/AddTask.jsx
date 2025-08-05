@@ -56,9 +56,9 @@ const AddTask = () => {
                             {nameError && <p style={{ color: 'red' }}>{nameError}</p>}
 
                             <p className='mt-3'>Descrizione della task</p>
-                            <textarea ref={description} required></textarea>
+                            <textarea ref={description} required className='margin-b'></textarea>
                             <p className='mt-3'>Stato della Task</p>
-                            <select ref={status} defaultValue="To do" >
+                            <select ref={status} defaultValue="To do" className='margin-b' >
                                 <option value="To do">To do</option>
                                 <option value="Doing">Doing</option>
                                 <option value="Done">Done</option>

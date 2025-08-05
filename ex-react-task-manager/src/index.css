@@ -39,6 +39,13 @@ textarea {
     padding: 5px;
 }
 
+.margin-b {
+
+    position: relative;
+    bottom: 0px;
+}
+
+
 /* UPDATE TASK */
 .modale-modifica {
     position: relative;

@@ -20,6 +20,7 @@ const EditTaskModal = ({ show, onClose, task, onSave }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSave(editedTask)
+        alert('Task modificata con successo')
     }
 
     if (!show) return null
