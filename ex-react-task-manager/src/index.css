@@ -21,7 +21,7 @@
     top: 250px;
     background-color: rgba(0, 0, 0, 0.596);
     border-radius: 10px;
-    height: 250px;
+    max-height: 250px;
     padding: 25px;
 }
 
@@ -37,4 +37,25 @@ select,
 textarea {
     border-radius: 8px;
     padding: 5px;
+}
+
+/* UPDATE TASK */
+.modale-modifica {
+    position: relative;
+    border-radius: 10px;
+    max-height: 250px;
+    width: 800px;
+}
+
+.modify-input {
+    position: relative;
+    top: -90px;
+    left: 180px;
+}
+
+.modify-input,
+textarea,
+select {
+    position: relative;
+    bottom: -48px;
 }

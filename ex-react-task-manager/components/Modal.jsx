@@ -1,13 +1,13 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
 
+// recupero le props passate da taskDetail
 const Modal = ({ title, content, show, onClose, onConfirm, confirmText = 'conferma' }) => {
 
     if (!show) return null;
-
-    console.log('Modal props:', { title, content, show, onClose, onConfirm, confirmText });
+    // creo il portale
     return createPortal(
-
+        // creo l'overlay per la conferma di eliminazione
         <div className='overlay'>
             <div className='modale'>
                 <h2 className='text-white'>{title}</h2>
