@@ -55,7 +55,7 @@ const TaskDetail = () => {
                             <p><b>Data di creazione:</b> {new Date(selectedTasK.createdAt).toLocaleDateString()}</p>
                             <p className='w-25 rounded p-2' style={{
                                 backgroundColor: selectedTasK.status === 'To do' ? '#dc3545' : selectedTasK.status === 'Doing' ? '#ffc107' : '#198754',
-                                color: selectedTasK.status === 'Done' ? '#000' : '#fff'
+                                color: selectedTasK.status === 'Done' ? '#fff' : '#fff'
                             }}>
                                 <b>Stato:</b> {selectedTasK.status}</p>
 

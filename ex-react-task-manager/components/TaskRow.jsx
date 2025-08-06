@@ -64,7 +64,7 @@ const TaskRow = () => {
 
     return (
         <>
-            <input type="text" placeholder='Cerca...' className='mb-4' onChange={e => debounceSearch(e.target.value)} />
+            <input type="text" placeholder='Cerca...' className='mb-4 p-2' onChange={e => debounceSearch(e.target.value)} />
             <table className="table table-bordered table-hover shadow rounded-4 overflow-hidden">
                 <thead className="table-light">
                     <tr>
