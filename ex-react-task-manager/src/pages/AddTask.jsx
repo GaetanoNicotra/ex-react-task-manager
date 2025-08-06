@@ -46,8 +46,8 @@ const AddTask = () => {
 
     return (
         <>
-            <div className="container">
-                <h2 className='mt-4'>Aggiungi una nuova Task!</h2>
+            <div className="container bg-body-secondary p-3 mt-5 rounded">
+                <h2 className='mt-2'>Aggiungi una nuova Task!</h2>
                 <div className="row">
                     <div className="col-8">
                         <form onSubmit={sendData}>

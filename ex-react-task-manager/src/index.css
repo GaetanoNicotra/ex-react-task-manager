@@ -1,3 +1,7 @@
+body {
+    background-color: rgba(37, 169, 221, 0.466);
+}
+
 /* CARD */
 .card {
     font-size: 20px;

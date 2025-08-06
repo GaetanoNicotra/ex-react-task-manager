@@ -48,8 +48,8 @@ const TaskDetail = () => {
     return (
         <>
             <div className="container d-flex justify-content-center">
-                <div className="col-8 mt-5">
-                    <div className='card p-2'>
+                <div className="col-12 mt-5">
+                    <div className='card p-4 bg-body-secondary'>
                         <div><p><b>Titolo:</b> {selectedTasK.title}</p>
                             <p><b>Descrizione:</b> {selectedTasK.description}</p>
                             <p><b>Data di creazione:</b> {new Date(selectedTasK.createdAt).toLocaleDateString()}</p>
