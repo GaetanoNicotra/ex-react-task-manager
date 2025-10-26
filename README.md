@@ -1,6 +1,6 @@
 
 <div align="center" class="text-center">
-<h1>EX-REACT-TASK-MANAGER</h1>
+<h1>EX-REACT-TASK-MANAGER 📝</h1>
 <p><em>Transform Tasks Into Triumphs Effortlessly</em></p>
 
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/GaetanoNicotra/ex-react-task-manager?style=flat&amp;logo=git&amp;logoColor=white&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
@@ -31,15 +31,13 @@ Il progetto è sviluppato in **React** e utilizza un backend pre-esistente per l
 * **Dettagli task:** Pagina dedicata per visualizzare i dettagli di ogni singolo task.
 * **Ordinamento dinamico:** Possibilità di ordinare la lista dei task per nome, stato o data di creazione.
 * **Ricerca ottimizzata:** Campo di ricerca con `debounce` per filtrare i task in tempo reale.
-* **Modali di conferma:** Modali riutilizzabili per confermare le azioni critiche (es. eliminazione) e per la modifica dei task.
+* **Modali di conferma:** Modali per confermare le azioni critiche (es. eliminazione) e per la modifica dei task.
 * **Gestione dello stato globale:** Utilizzo del **Context API** per centralizzare e ottimizzare la gestione dei dati.
 * **Ottimizzazione delle performance:** Componenti ottimizzati con `React.memo()` e logiche di ordinamento con `useMemo()`.
 
 ---
 
 ## Struttura del progetto
-
-Il progetto è suddiviso in diverse milestone che guidano lo sviluppo passo dopo passo, dalla configurazione iniziale fino all'implementazione delle funzionalità più avanzate.
 
 ### Milestone 1 - Setup e Routing
 
